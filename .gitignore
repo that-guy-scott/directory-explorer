@@ -1,6 +1,13 @@
 # Dependencies
 node_modules/
 
+# IDE files
+.idea/
+*.iml
+
+# Development files
+CLAUDE.md
+
 # Temporary files
 tmp.json
 *.tmp
