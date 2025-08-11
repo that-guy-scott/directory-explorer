@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directory Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1 class="app-title">Directory Explorer</h1>
+        </header>
+
+        <main class="main-content">
+            <div class="controls">
+                <div class="path-input-container">
+                    <i data-lucide="folder" class="input-icon"></i>
+                    <input 
+                        type="text" 
+                        id="pathInput" 
+                        class="path-input" 
+                        placeholder="Enter directory path..."
+                        value="/home/owner"
+                    >
+                    <button id="browseBtn" class="browse-btn">
+                        <i data-lucide="search" class="btn-icon"></i>
+                        Browse
+                    </button>
+                </div>
+
+                <div class="search-input-container" id="searchContainer">
+                    <i data-lucide="search" class="input-icon"></i>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="Search in current directory..."
+                    >
+                    <label class="regex-toggle">
+                        <input type="checkbox" id="regexMode">
+                        <span class="regex-label">.*</span>
+                    </label>
+                    <button id="clearSearchBtn" class="clear-search-btn" style="display: none;">
+                        <i data-lucide="x" class="btn-icon"></i>
+                    </button>
+                </div>
+                
+                <nav class="breadcrumb" id="breadcrumb">
+                    <!-- Breadcrumb will be populated by JavaScript -->
+                </nav>
+            </div>
+
+            <div class="content-area">
+                <div class="loading" id="loading" style="display: none;">
+                    <i data-lucide="loader-2" class="loading-icon"></i>
+                    <span>Loading directory...</span>
+                </div>
+
+                <div class="error-message" id="errorMessage" style="display: none;">
+                    <i data-lucide="alert-circle" class="error-icon"></i>
+                    <span id="errorText"></span>
+                </div>
+
+                <div class="search-results" id="searchResults" style="display: none;">
+                    <div class="search-header">
+                        <h3 id="searchResultsTitle">Search Results</h3>
+                        <span id="searchResultsCount"></span>
+                    </div>
+                    <div class="search-results-body" id="searchResultsBody">
+                        <!-- Search results will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="file-list" id="fileList">
+                    <div class="list-header">
+                        <div class="header-cell name-header">
+                            <i data-lucide="file-text" class="header-icon"></i>
+                            Name
+                        </div>
+                        <div class="header-cell size-header">Size</div>
+                        <div class="header-cell date-header">Modified</div>
+                    </div>
+                    <div class="list-body" id="listBody">
+                        <!-- File items will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <i data-lucide="folder-x" class="empty-icon"></i>
+                    <h3>Empty Directory</h3>
+                    <p>This directory contains no files or folders.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- File Viewer Modal -->
+    <div class="modal-overlay" id="fileModal" style="display: none;">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">File Viewer</h3>
+                <button class="modal-close" id="modalClose">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-navigation" id="modalNavigation">
+                <button class="nav-btn prev-btn" id="prevFileBtn">
+                    <i data-lucide="chevron-left"></i>
+                </button>
+                <span class="file-counter" id="fileCounter">1 of 1</span>
+                <button class="nav-btn next-btn" id="nextFileBtn">
+                    <i data-lucide="chevron-right"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <div class="modal-loading" id="modalLoading">
+                    <i data-lucide="loader-2" class="loading-icon"></i>
+                    <span>Loading file...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
