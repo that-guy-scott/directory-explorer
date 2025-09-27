@@ -16,6 +16,8 @@ A modern web-based file system browser with search capabilities and file viewer 
 
 <div align="center">
   <img src="img.png" alt="Directory Explorer Screenshot" />
+  <img src="img_1.png" alt="Directory Explorer Screenshot" />
+  <img src="img_2.png" alt="Directory Explorer Screenshot" />
 </div>
 
 ## Features
