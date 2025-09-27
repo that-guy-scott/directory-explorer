@@ -2,6 +2,22 @@
 
 A modern web-based file system browser with search capabilities and file viewer functionality. Built with Node.js and Express, featuring a clean responsive interface for exploring directories, searching files, and viewing content.
 
+## Tech Stack
+
+<div align="center">
+
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+
+</div>
+
+<div align="center">
+  <img src="img.png" alt="Directory Explorer Screenshot" />
+</div>
+
 ## Features
 
 - **Browse directories** - Navigate through the file system with an intuitive interface
