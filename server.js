@@ -4,7 +4,8 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = 10000;
+const PORT = Number(process.env.PORT || 10000);
+const HOST = '127.0.0.1';
 
 // Enable CORS
 app.use(cors());
@@ -276,8 +277,8 @@ app.get('/api/file/*', (req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(PORT, HOST, () => {
+  console.log(`Server running at http://${HOST}:${PORT}`);
 });
 
 module.exports = app;
